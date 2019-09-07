@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-922" y="115"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Complex Tableview-->
         <scene sceneID="etb-oz-1wP">
             <objects>
                 <viewController id="Yfq-Dp-x6S" customClass="MainViewController" customModule="Complex_Tableview" customModuleProvider="target" sceneMemberID="viewController">
@@ -142,7 +142,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vUK-W2-FHC"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cqk-PB-tSn"/>
+                    <navigationItem key="navigationItem" title="Complex Tableview" id="cqk-PB-tSn"/>
                     <connections>
                         <outlet property="headerView" destination="kkc-Gy-JCV" id="DH6-ak-gnt"/>
                         <outlet property="headerViewConstraint" destination="9AY-zK-TTk" id="AgU-aH-wgB"/>
