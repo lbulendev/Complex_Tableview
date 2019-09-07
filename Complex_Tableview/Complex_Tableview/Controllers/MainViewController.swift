@@ -24,11 +24,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         let left = UISwipeGestureRecognizer(target: self, action: #selector(leftSwipe))
         left.direction = .left
-        self.view.addGestureRecognizer(left)
+        self.tableView.addGestureRecognizer(left)
 
         let right = UISwipeGestureRecognizer(target: self, action: #selector(rightSwipe))
         right.direction = .right
-        self.view.addGestureRecognizer(right)
+        self.tableView.addGestureRecognizer(right)
     }
 
     @IBAction func segmentedControlValueChanged(_ sender: Any) {
