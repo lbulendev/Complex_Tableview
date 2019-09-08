@@ -29,16 +29,28 @@ class SecondTableViewCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
         return stackView
     }()
+
+    static var estimatedSize: CGSize {
+        return CGSize(width: 200, height: 35)
+    }
     
+    static func size(_ item: FirstViewModel, at indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: 35)
+    }
+    
+    struct Constants {
+        static let padding = UIEdgeInsets(top: 8, left: 8, bottom: -8, right: 8)
+    }
+
     private func arrangeConstraints() {
         let mainStackViewConstraints: [NSLayoutConstraint] = [
-            mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            mainStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
-            mainStackView.widthAnchor.constraint(equalToConstant: contentView.frame.size.width),
-            mainStackView.heightAnchor.constraint(equalToConstant: contentView.frame.size.height)
+            mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.padding.top),
+            mainStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.padding.left),
+            mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: Constants.padding.bottom),
+            mainStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: Constants.padding.right),
         ]
         NSLayoutConstraint.activate(mainStackViewConstraints)
     }
@@ -56,12 +68,13 @@ class SecondTableViewCell: UITableViewCell {
         selectionStyle = .none
         accessoryType = .none
         
-        mainStackView.addSubview(numLabel)
-        mainStackView.addSubview(numSquareLabel)
         contentView.addSubview(mainStackView)
+        mainStackView.addArrangedSubview(numLabel)
+        mainStackView.addArrangedSubview(numSquareLabel)
 
         numLabel.text = "\(item.num ?? 0)"
         numSquareLabel.text = "\(item.numSquare ?? 0)"
+        self.arrangeConstraints()
     }
 
 }

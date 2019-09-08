@@ -29,16 +29,28 @@ class FirstTableViewCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
         return stackView
     }()
 
+    static var estimatedSize: CGSize {
+        return CGSize(width: 200, height: 80)
+    }
+
+    static func size(_ item: FirstViewModel, at indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: 80)
+    }
+
+    struct Constants {
+        static let padding = UIEdgeInsets(top: 16, left: 16, bottom: -16, right: 16)
+    }
+
     private func arrangeConstraints() {
         let mainStackViewConstraints: [NSLayoutConstraint] = [
-            mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            mainStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
-            mainStackView.widthAnchor.constraint(equalToConstant: 100),
-            mainStackView.heightAnchor.constraint(equalToConstant: 40)
+            mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.padding.top),
+            mainStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.padding.left),
+            mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: Constants.padding.bottom),
+            mainStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: Constants.padding.right),
         ]
         NSLayoutConstraint.activate(mainStackViewConstraints)
     }
@@ -58,10 +70,10 @@ class FirstTableViewCell: UITableViewCell {
         numLabel.text = "\(item.num ?? 0)"
         letterLabel.text = "\(item.letter?.uppercased() ?? "A")"
 
-        mainStackView.addSubview(numLabel)
-        mainStackView.addSubview(letterLabel)
         contentView.addSubview(mainStackView)
-
+        mainStackView.addArrangedSubview(numLabel)
+        mainStackView.addArrangedSubview(letterLabel)
+        self.arrangeConstraints()
     }
 
 }
