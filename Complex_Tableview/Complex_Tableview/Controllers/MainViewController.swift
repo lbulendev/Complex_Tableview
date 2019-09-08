@@ -15,8 +15,40 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
+    var firstModels: [FirstViewModel]? = [
+        FirstViewModel(num: 1, letter: "Q")
+    ]
+    var secondModels: [SecondViewModel]? = [
+        SecondViewModel(num: 4, numSquare: 16)
+    ]
+    var thirdModels: [ThirdViewModel]? = [
+        ThirdViewModel(letters: "QQQ")
+    ]
+
+//    func setupViewModels() {
+//        for index in 0..<26 {
+//            let u = UnicodeScalar.init(index + 65)
+//            let char = Character.init(u!)
+//            self.firstModels?.append(FirstViewModel(num: index + 1, letter: char))
+//        }
+//        for index in 0..<20 {
+//            let num: Int = index + 1
+//            self.secondModels?.append(SecondViewModel(num: num, numSquare: num * num))
+//        }
+//        for index in 0..<25 {
+//            let u = UnicodeScalar.init(index + 65)
+//            let char = Character.init(u!)
+//            var letterString: String = ""
+//            for _ in -1..<index {
+//                letterString = letterString + String(char)
+//            }
+//            self.thirdModels?.append(ThirdViewModel(letters: letterString))
+//        }
+//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.setupViewModels()
 //        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 88
@@ -59,42 +91,66 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var numOfRows: Int = 0
         switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
-            numOfRows = 26
+//            numOfRows = 26
+            numOfRows = self.firstModels!.count
         case 1:
-            numOfRows = 20
+//            numOfRows = 20
+            numOfRows = self.secondModels!.count
         default:
-            numOfRows = 25
+//            numOfRows = 25
+            numOfRows = self.thirdModels!.count
         }
         return numOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell
+        let cell: UITableViewCell?
         switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-            cell.textLabel?.text = "\(indexPath.row + 1)"
-            let u = UnicodeScalar.init(indexPath.row + 65)
-            let char = Character.init(u!)
-            cell.detailTextLabel?.text = "\(char)"
+            guard let cell = tableView
+                .dequeueReusableCell(withIdentifier: "FirstTableViewCell") as?
+                FirstTableViewCell else {
+                    return FirstTableViewCell()
+            }
+            cell.config(firstModels![indexPath.row], at: indexPath)
+            return cell
+//            cell = tableView.dequeueReusableCell(withIdentifier: "FirstTableViewCell", for: indexPath) as! FirstTableViewCell
+//            cell.textLabel?.text = "\(indexPath.row + 1)"
+//            let u = UnicodeScalar.init(indexPath.row + 65)
+//            let char = Character.init(u!)
+//            cell.detailTextLabel?.text = "\(char)"
             //        cell.contentView.layoutIfNeeded()
         case 1:
-            cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-            let num: Int = 10 - indexPath.row
-            cell.textLabel?.text = "\(num)"
-            cell.detailTextLabel?.text = "\(num)^2 = \(num * num)"
-        default:
-            cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-            let u = UnicodeScalar.init(indexPath.row + 65)
-            let char = Character.init(u!)
-            var localString: String = ""
-            for _ in -1..<indexPath.row {
-                localString = localString + String(char)
+            guard let cell = tableView
+            .dequeueReusableCell(withIdentifier: "SecondTableViewCell") as?
+                SecondTableViewCell else {
+                    return SecondTableViewCell()
             }
-            cell.textLabel?.text = localString
-            cell.detailTextLabel?.text = ""
+            cell.config(secondModels![indexPath.row], at: indexPath)
+            return cell
+//            cell = tableView.dequeueReusableCell(withIdentifier: "SecondTableViewCell", for: indexPath) as! SecondTableViewCell
+//            let num: Int = 10 - indexPath.row
+//            cell.textLabel?.text = "\(num)"
+//            cell.detailTextLabel?.text = "\(num)^2 = \(num * num)"
+        default:
+            guard let cell = tableView
+            .dequeueReusableCell(withIdentifier: "ThirdTableViewCell") as?
+                ThirdTableViewCell else {
+                    return ThirdTableViewCell()
+            }
+            cell.config(thirdModels![indexPath.row], at: indexPath)
+            return cell
+//            cell = tableView.dequeueReusableCell(withIdentifier: "ThirdTableViewCell", for: indexPath) as! ThirdTableViewCell
+//            let u = UnicodeScalar.init(indexPath.row + 65)
+//            let char = Character.init(u!)
+//            var localString: String = ""
+//            for _ in -1..<indexPath.row {
+//                localString = localString + String(char)
+//            }
+//            cell.textLabel?.text = localString
+//            cell.detailTextLabel?.text = ""
         }
-        return cell
+//        return cell!
     }
 
     // Delegate = UIScrollViewDelegate

@@ -12,6 +12,12 @@
 		A44BACC023243A72004E5774 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44BACBF23243A72004E5774 /* Assets.xcassets */; };
 		A44BACC323243A72004E5774 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44BACC123243A72004E5774 /* LaunchScreen.storyboard */; };
 		A44BACCF23243C20004E5774 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BACCE23243C20004E5774 /* MainViewController.swift */; };
+		A44BACD223248ABC004E5774 /* FirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BACD123248ABC004E5774 /* FirstTableViewCell.swift */; };
+		A44BACD423248AD2004E5774 /* SecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BACD323248AD2004E5774 /* SecondTableViewCell.swift */; };
+		A44BACD623248AE7004E5774 /* ThirdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BACD523248AE7004E5774 /* ThirdTableViewCell.swift */; };
+		A44BACD823248DAF004E5774 /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BACD723248DAF004E5774 /* FirstViewModel.swift */; };
+		A44BACDA23248DBC004E5774 /* SecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BACD923248DBC004E5774 /* SecondViewModel.swift */; };
+		A44BACDC23248DC8004E5774 /* ThirdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44BACDB23248DC8004E5774 /* ThirdViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		A44BACC223243A72004E5774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A44BACC423243A72004E5774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A44BACCE23243C20004E5774 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A44BACD123248ABC004E5774 /* FirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewCell.swift; sourceTree = "<group>"; };
+		A44BACD323248AD2004E5774 /* SecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewCell.swift; sourceTree = "<group>"; };
+		A44BACD523248AE7004E5774 /* ThirdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTableViewCell.swift; sourceTree = "<group>"; };
+		A44BACD723248DAF004E5774 /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
+		A44BACD923248DBC004E5774 /* SecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewModel.swift; sourceTree = "<group>"; };
+		A44BACDB23248DC8004E5774 /* ThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +89,9 @@
 			children = (
 				A44BACC123243A72004E5774 /* LaunchScreen.storyboard */,
 				A44BACBC23243A71004E5774 /* Main.storyboard */,
+				A44BACD123248ABC004E5774 /* FirstTableViewCell.swift */,
+				A44BACD323248AD2004E5774 /* SecondTableViewCell.swift */,
+				A44BACD523248AE7004E5774 /* ThirdTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -84,6 +99,9 @@
 		A44BACD023243C8A004E5774 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A44BACD723248DAF004E5774 /* FirstViewModel.swift */,
+				A44BACD923248DBC004E5774 /* SecondViewModel.swift */,
+				A44BACDB23248DC8004E5774 /* ThirdViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -159,8 +177,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A44BACDA23248DBC004E5774 /* SecondViewModel.swift in Sources */,
+				A44BACD223248ABC004E5774 /* FirstTableViewCell.swift in Sources */,
+				A44BACD823248DAF004E5774 /* FirstViewModel.swift in Sources */,
 				A44BACB923243A71004E5774 /* AppDelegate.swift in Sources */,
+				A44BACD623248AE7004E5774 /* ThirdTableViewCell.swift in Sources */,
 				A44BACCF23243C20004E5774 /* MainViewController.swift in Sources */,
+				A44BACDC23248DC8004E5774 /* ThirdViewModel.swift in Sources */,
+				A44BACD423248AD2004E5774 /* SecondTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
