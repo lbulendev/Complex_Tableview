@@ -170,7 +170,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell?
         switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
             guard let cell = tableView
