@@ -132,7 +132,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.tableView.addGestureRecognizer(right)
     }
 
-    @IBAction func segmentedControlValueChanged(_ sender: Any) {
+    @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         self.tableView.reloadData()
         self.segmentedControl.setupSegment()
     }

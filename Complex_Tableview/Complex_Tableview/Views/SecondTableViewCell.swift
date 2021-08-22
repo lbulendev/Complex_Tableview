@@ -29,7 +29,6 @@ class SecondTableViewCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
         return stackView
     }()
 
@@ -50,7 +49,7 @@ class SecondTableViewCell: UITableViewCell {
             mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.padding.top),
             mainStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Constants.padding.left),
             mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: Constants.padding.bottom),
-            mainStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: Constants.padding.right),
+            mainStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Constants.padding.right),
         ]
         NSLayoutConstraint.activate(mainStackViewConstraints)
     }
